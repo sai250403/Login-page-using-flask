@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: #fff;
+        }
+        .container {
+            background: #fff;
+            color: #333;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            box-sizing: border-box;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0;
+            color: #2575fc;
+        }
+        .msg {
+            text-align: center;
+            margin-bottom: 1rem;
+            color: red;
+            font-size: 0.9rem;
+        }
+        .textbox {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+        .btn {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: #2575fc;
+            color: #fff;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #6a11cb;
+        }
+        .bottom {
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+        .bottom a {
+            color: #2575fc;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .bottom a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Login</h1>
+        </div>
+        <div class="msg">{{ msg }}</div>
+        <form action="{{ url_for('login') }}" method="post">
+            <input id="username" name="username" type="text" placeholder="Enter Your Username" class="textbox" required />
+            <input id="password" name="password" type="password" placeholder="Enter Your Password" class="textbox" required />
+            <input type="submit" class="btn" value="Sign In">
+        </form>
+        <div class="bottom">
+            Don't have an account? <a href="{{ url_for('register') }}">Sign Up here</a>
+        </div>
+    </div>
+</body>
+</html>
