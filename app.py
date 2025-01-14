@@ -9,11 +9,11 @@ app = Flask(__name__)
 app.secret_key = 'your secret key'
 
 # MySQL configurations
-app.config['MYSQL_HOST'] = '127.0.0.1'
-app.config['MYSQL_PORT'] = 3308  # Optional: Use if your MySQL runs on a non-default port
+app.config['MYSQL_HOST'] = '127.0.0.1'  # Service name from docker-compose.yml
+app.config['MYSQL_PORT'] = 3308  # MySQL default port inside the container
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = 'yvsg2003'
-app.config['MYSQL_DB'] = 'geeklogin'
+app.config['MYSQL_DB'] = 'linfo'
 
 # Initialize MySQL
 mysql = MySQL(app)
@@ -64,7 +64,7 @@ def register():
         elif not username or not password or not email:
             msg = 'Please fill out the form!'
         else:
-            cursor.execute('INSERT INTO accounts VALUES (NULL, %s, %s, %s)', (username, password, email,))
+            cursor.execute('INSERT INTO accounts (username, password, email) VALUES (%s, %s, %s)', (username, password, email,))
             mysql.connection.commit()
             msg = 'You have successfully registered!'
     elif request.method == 'POST':
