@@ -51,6 +51,9 @@ Flask run
 
 These are the steps for building Flask-Docker Basic Project
 
+Click on ctrl+rightclick on http://127.0.0.1:5000 to use it.
+
+Thank you
 
 
 
