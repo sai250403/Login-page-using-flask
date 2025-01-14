@@ -9,10 +9,10 @@ app = Flask(__name__)
 app.secret_key = 'your secret key'
 
 # MySQL configurations
-app.config['MYSQL_HOST'] = '127.0.0.1'  # Service name from docker-compose.yml
-app.config['MYSQL_PORT'] = 3308  # MySQL default port inside the container
+app.config['MYSQL_HOST'] = '127.0.0.1' 
+app.config['MYSQL_PORT'] = "your default port" 
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'yvsg2003'
+app.config['MYSQL_PASSWORD'] = 'your mysql password '
 app.config['MYSQL_DB'] = 'linfo'
 
 # Initialize MySQL
